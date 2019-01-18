@@ -4,9 +4,8 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import store from './Store';
+import { store } from './Store';
 
-const unsubscribe = store.subscribe(() => console.log(store.getState()));
 ReactDOM.render(
   <Provider store={store}>
     <App />
