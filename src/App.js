@@ -1,42 +1,30 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React from 'react';
+import { connect } from 'react-redux';
 import './App.css';
-import { Provider } from 'react-redux';
 import { incrementCounter, decrementCounter } from './actions';
-import store from './Store';
 
-const unsubscribe = store.subscribe(() => console.log(store.getState()));
+function App(props) {
+  const { counter, increment, decrement } = props;
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
-          <p>{store.getState().counter}</p>
-          <button onClick={() => store.dispatch(incrementCounter())}>
-            INCREMENT
-          </button>
-          <button onClick={() => store.dispatch(decrementCounter())}>
-            INCREMENT
-          </button>
-        </div>
-      </Provider>
-    );
-  }
+  return (
+    <div className="App">
+      <p>{counter}</p>
+      <button onClick={increment}>INCREMENT</button>
+      <button onClick={decrement}>INCREMENT</button>
+    </div>
+  );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  counter: state.counter,
+});
+
+const mapDispatchToProps = dispatch => ({
+  increment: () => dispatch(incrementCounter()),
+  decrement: () => dispatch(decrementCounter()),
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
