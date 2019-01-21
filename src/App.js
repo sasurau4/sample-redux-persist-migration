@@ -31,6 +31,7 @@ function App(props) {
             <React.Fragment key={fruitOption}>
               <input
                 type="radio"
+                id={fruitOption}
                 name={fruitOption}
                 value={fruitOption}
                 checked={fruitOption === favoriteFruit}
