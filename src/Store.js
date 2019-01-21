@@ -13,11 +13,19 @@ const migrations = {
       },
     };
   },
+  1: state => {
+    return {
+      ...state,
+      favorite: {
+        animal: state.favorite.animal,
+      },
+    };
+  },
 };
 
 const persistConfig = {
   key: 'root',
-  version: 0,
+  version: 1,
   storage,
   debug: true,
   migrate: createMigrate(migrations, { debug: true }),
