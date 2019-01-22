@@ -1,3 +1,9 @@
+## sample-redux-persist-migration
+
+This repo is sample repo of redux-persist-migration.
+For more details, see [this article](https://dev.to/sasurau4/how-to-migrate-store-persisted-by-redux-persist-5dng)
+
+---------
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
